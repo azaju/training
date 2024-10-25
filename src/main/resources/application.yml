@@ -1,0 +1,64 @@
+server:
+  port: 8081
+
+spring:
+  security:
+      oauth2:
+        client:
+          registration:
+            keycloak-oidc:
+              provider: keycloak
+              client-name: trainingapp
+              client-id: trainingapp
+              client-secret: ngdJeseBDz7hFb9GKgEXWbvMv6bMF74u
+              authorization-grant-type: "authorization_code"
+              scope: "openid, profile, email"
+          provider:
+            keycloak:
+              issuer-uri: "http://localhost:8080/realms/trainingRealm"
+
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: testdb
+#      username: admin
+#      password: admin
+#
+#keycloak:
+#  auth-server-url: http://localhost:8080/auth
+#  realm: your-realm
+#  resource: your-client
+#  public-client: true
+#  security-constraints:
+#    - authRoles: [USER]
+#      securityCollections:
+#        - patterns: [/*]
+
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak-oidc:
+#            provider: keycloak
+#            client-name: trainingapp
+#            client-id: trainingapp
+#            client-secret: ngdJeseBDz7hFb9GKgEXWbvMv6bMF74u
+#            authorization-grant-type: "authorization_code"
+#            scope: "openid, profile, email"
+#        provider:
+#          keycloak:
+#            issuer-uri: "http://localhost:8080/realms/trainingRealm"
+#
+#server:
+#  port: 8081
+#
+#logging:
+#  level:
+#    org.springframework.security: TRACE
+#    org.keycloak: TRACE
+#    web : TRACE
+#  pattern:
+#    console: "%d{HH:mm:ss.SSS} [%15thread] %msg%n"
