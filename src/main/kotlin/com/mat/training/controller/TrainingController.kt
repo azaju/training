@@ -19,21 +19,16 @@ class TrainingController (private val trainingService : TrainingService){
 
     @GetMapping("/")
     fun slash(): String {
-        return "redirect:/home"  // Renvoie le nom de la vue loginPage.html
+        return "redirect:/loginpage"  // Renvoie le nom de la vue loginpage.html
     }
 
-    @GetMapping("/loginPage")
-    fun loginPage(): String {
-        return "loginPage"  // Renvoie le nom de la vue loginPage.html
+   @GetMapping("/home")
+    fun home(): String {
+        return "home"  // Renvoie le nom de la vue loginpage.html
     }
 
-    /*@GetMapping("/login")
-    fun showLoginForm(): String {
-        return "login"  // Renvoie le nom de la vue loginPage.html
-    }*/
-
-    @GetMapping("/home")
-    fun home (token : OAuth2AuthenticationToken, @RegisteredOAuth2AuthorizedClient client :  OAuth2AuthorizedClient): ModelAndView {
+    @GetMapping("/loginpage")
+    fun loginPage (token : OAuth2AuthenticationToken, @RegisteredOAuth2AuthorizedClient client :  OAuth2AuthorizedClient): ModelAndView {
         var principal:OidcUser = token.getPrincipal() as OidcUser
         var model = generateDefaultModel(token);
 

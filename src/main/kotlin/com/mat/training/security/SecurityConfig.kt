@@ -30,9 +30,9 @@ class SecurityConfig {
             .authorizeHttpRequests { authz ->
                 authz
                     .requestMatchers("/home").authenticated()
-                    .requestMatchers("home/admin/**").hasAnyAuthority("SCOPE_training.trainer")
+                    //.requestMatchers("home/admin/**").hasAnyAuthority("SCOPE_training.trainer")
+                    .requestMatchers("/home").hasAnyAuthority("SCOPE_training.trainer", "SCOPE_training.trainee")
                     .requestMatchers("/home/**").hasAnyAuthority("SCOPE_training.trainer", "SCOPE_training.trainee")
-                    .requestMatchers("/test/**").hasAnyAuthority("SCOPE_training.trainer", "SCOPE_training.trainee")
                     .anyRequest().authenticated()
                     }
             .oauth2Login() { oauth2 ->

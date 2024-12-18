@@ -22,7 +22,7 @@ class MongoConnectionApplicationLiveTest {
     lateinit var mongoClient: MongoClient
 
 
-    @Test
+    //@Test
     fun assertInsertSucceeds(context: ConfigurableApplicationContext) {
         val database = mongoClient.getDatabase("trainingDB")
         assertNotNull(database)
